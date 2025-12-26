@@ -1,0 +1,120 @@
+{
+  "name": "Universal Website Scraper MVP",
+  "version": "1.0.0",
+  "capabilities": {
+    "static_scraping": {
+      "implemented": true,
+      "library": "axios + cheerio",
+      "features": [
+        "HTML fetching with realistic User-Agent",
+        "Meta tag extraction (title, description, language, canonical)",
+        "Section grouping by semantic elements",
+        "Heading-based section fallback",
+        "Relative URL resolution",
+        "Content truncation with flag"
+      ]
+    },
+    "js_rendering": {
+      "implemented": true,
+      "library": "Playwright (Chromium)",
+      "features": [
+        "Automatic fallback when static content insufficient",
+        "Network idle wait strategy",
+        "Dynamic content extraction"
+      ]
+    },
+    "interactions": {
+      "scrolling": {
+        "implemented": true,
+        "depth": 3,
+        "description": "Scrolls 3 viewport heights with 1s pause each"
+      },
+      "click_load_more": {
+        "implemented": true,
+        "selectors": [
+          "button:has-text('Load more')",
+          "button:has-text('Show more')",
+          "button:has-text('See more')",
+          "a:has-text('Load more')",
+          "[class*='load-more']",
+          "[class*='show-more']"
+        ]
+      },
+      "click_tabs": {
+        "implemented": true,
+        "selectors": [
+          "[role='tab']",
+          ".tab",
+          "[class*='tab-']"
+        ]
+      },
+      "pagination": {
+        "implemented": true,
+        "selectors": [
+          "a[aria-label='Next']",
+          "a:has-text('Next')",
+          ".pagination a:last-child",
+          "[class*='next']"
+        ]
+      }
+    },
+    "section_types": {
+      "implemented": [
+        "hero",
+        "section",
+        "nav",
+        "footer",
+        "list",
+        "grid",
+        "faq",
+        "pricing",
+        "unknown"
+      ]
+    },
+    "content_extraction": {
+      "headings": true,
+      "text": true,
+      "links": true,
+      "images": true,
+      "lists": true,
+      "tables": true,
+      "raw_html": true
+    },
+    "frontend": {
+      "implemented": true,
+      "features": [
+        "URL input with validation",
+        "Scrape button with loading state",
+        "Error display",
+        "Section accordion with expand/collapse",
+        "JSON viewer for each section",
+        "Full JSON download",
+        "Responsive design"
+      ]
+    },
+    "api_endpoints": {
+      "GET /healthz": true,
+      "POST /scrape": true,
+      "GET /": "Frontend UI"
+    },
+    "database": {
+      "implemented": true,
+      "type": "MongoDB",
+      "purpose": "Optional logging of scrape results",
+      "required": false
+    },
+    "error_handling": {
+      "graceful_degradation": true,
+      "partial_results": true,
+      "phase_tagging": true
+    }
+  },
+  "limitations": [
+    "Cannot bypass CAPTCHAs",
+    "Cannot scrape authenticated pages",
+    "Iframes not supported",
+    "Shadow DOM partially supported",
+    "May be blocked by aggressive rate limiters",
+    "First run requires Chromium download (~150MB)"
+  ]
+}

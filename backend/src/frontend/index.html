@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Website Scraper</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔍 Universal Website Scraper</h1>
+      <p class="subtitle">Extract structured data from any website</p>
+    </header>
+
+    <main>
+      <section class="scrape-form">
+        <div class="input-group">
+          <input 
+            type="url" 
+            id="urlInput" 
+            placeholder="Enter URL to scrape (e.g., https://example.com)"
+            autocomplete="url"
+          >
+          <button id="scrapeBtn" type="button">
+            <span class="btn-text">Scrape</span>
+            <span class="btn-loading" hidden>
+              <span class="spinner"></span>
+              Scraping...
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <section id="errorSection" class="error-section" hidden>
+        <div class="error-box">
+          <span class="error-icon">⚠️</span>
+          <span id="errorMessage"></span>
+        </div>
+      </section>
+
+      <section id="loadingSection" class="loading-section" hidden>
+        <div class="loading-box">
+          <div class="loading-spinner"></div>
+          <p>Scraping website... This may take up to 60 seconds for JS-heavy sites.</p>
+        </div>
+      </section>
+
+      <section id="resultSection" class="result-section" hidden>
+        <div class="result-header">
+          <h2>Scrape Results</h2>
+          <div class="result-actions">
+            <button id="downloadBtn" class="btn-secondary">
+              📥 Download JSON
+            </button>
+          </div>
+        </div>
+
+        <div class="meta-info">
+          <h3>Page Metadata</h3>
+          <div id="metaContent" class="meta-content"></div>
+        </div>
+
+        <div class="sections-container">
+          <h3>Sections (<span id="sectionCount">0</span>)</h3>
+          <div id="sectionsAccordion" class="accordion"></div>
+        </div>
+
+        <div class="interactions-info">
+          <h3>Interactions</h3>
+          <div id="interactionsContent" class="interactions-content"></div>
+        </div>
+
+        <div id="errorsContainer" class="errors-container" hidden>
+          <h3>Errors</h3>
+          <ul id="errorsList"></ul>
+        </div>
+
+        <div class="raw-json">
+          <h3>Full JSON Response</h3>
+          <button id="toggleJsonBtn" class="btn-secondary btn-small">
+            Show JSON
+          </button>
+          <pre id="jsonOutput" hidden></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Universal Website Scraper MVP • Static + JS Rendering Support</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
