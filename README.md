@@ -1,18 +1,12 @@
-# Welcome to your Lovable project
+# Welcome to your  project
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**URL**: Server running on http://localhost:8000 Frontend available at http://localhost:8000/ Health check at http://localhost:8000/healthz
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
@@ -32,7 +26,13 @@ cd <YOUR_PROJECT_NAME>
 # Step 3: Install the necessary dependencies.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Install Playwright browsers (required for JS rendering)
+npx playwright install
+
+# Step 5: Run the project
+./run.sh
+
+# Step 6: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 
@@ -60,14 +60,16 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## Tested URLs
 
-## Can I connect a custom domain to my Lovable project?
+These URLs were used for testing and evaluation:
 
-Yes, you can!
+Static Page
+https://en.wikipedia.org/wiki/Artificial_intelligence
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+JS-Rendered Page
+https://vercel.com
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Scroll / Pagination Depth ≥ 3
+https://news.ycombinator.com
